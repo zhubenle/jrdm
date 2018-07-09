@@ -1,11 +1,12 @@
 package com.jrdm;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
+
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * <br/>
@@ -17,14 +18,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Web View");
-        MenuBar menuBar = new MenuBar();
-        menuBar.setUseSystemMenuBar(true);
-        Menu menu1 = new Menu("父标题1");
-        Menu menu2 = new Menu("父标题2");
-        menu1.getItems().addAll(new MenuItem("子标题1"), new MenuItem("子标题2"));
-        menuBar.getMenus().addAll(menu1, menu2);
-        Scene scene = new Scene(menuBar, 200, 200);
+        primaryStage.setTitle("JRDM");
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/fxml/app.fxml"),
+                ResourceBundle.getBundle("language.message", Locale.CHINESE)));
         primaryStage.setScene(scene);
         primaryStage.show();
     }
